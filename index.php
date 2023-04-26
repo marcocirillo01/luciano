@@ -3,7 +3,7 @@
    $username = "root";
    $password = "";
    $databasename = "big";
-
+// marco//
 
 
 $data = mysqli_connect($servername, 
@@ -43,7 +43,7 @@ foreach ($result as $row)
 			  <th> NOME </th> 
 			  <th> COGNOME </th> 
 			  <th> EMAIL </th> 
-        <form action="test/insert.php" method="POST">
+        <form action="insert.php" method="POST">
           <p>
             <label for="nome">nome</label> 
               <input type="text" name='nome'id ='nome'>
