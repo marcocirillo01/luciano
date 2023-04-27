@@ -1,9 +1,9 @@
 p{
-    font:bolder italic 30px ;
+    font:bolder italic 50px ;
 }
 table{
     border: 2px solid black
 }
 tr{
-    background-color:wheat;
+    background-color:rgb(13, 108, 197);
 }

@@ -1,21 +1,11 @@
 <?php
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $databasename = "big";
-// marco//
-
-
-$data = mysqli_connect($servername, 
-    $username, $password, $databasename);
-    $query = "SELECT codice_fiscale, nome, cognome, email FROM utenti";
-
- 
+include "connessione.php";
 $data =new PDO(
-    "mysql:host=$servername;dbname=$databasename", 
-    $username, $password);
+  "mysql:host=$servername;dbname=$databasename", 
+  $username, $password);
 $stmt = $data->prepare($query);
-$query = "SELECT codice_fiscale, nome, cognome, email FROM utenti";
+$query = "SELECT id, codice_fiscale, nome, cognome, email FROM utenti";
+$id =['id'];
 $stmt = $data->prepare($query);
 $stmt->execute();
 $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -23,7 +13,6 @@ $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $result = $stmt->fetchAll();
 
 foreach ($result as $row) 
-
   ?>
   <!DOCTYPE html>
 <html lang="en">
@@ -38,11 +27,14 @@ foreach ($result as $row)
 <table align="center" border="1px" style="width:600px; line-height:40px;"> 
 	<tr> 
 		<th colspan="4"><h2>DATI UTENTI</h2></th> 
-		</tr> 
+   
+  </tr> 
 			  <th> CODICE FISCALE </th> 
 			  <th> NOME </th> 
 			  <th> COGNOME </th> 
-			  <th> EMAIL </th> 
+			  <th> EMAIL </th>
+        <th> OPERAZIONI </th>
+    
         <form action="insert.php" method="POST">
           <p>
             <label for="nome">nome</label> 
@@ -60,6 +52,7 @@ foreach ($result as $row)
           <input type="submit" value="invia">
         </form>
 <?php
+
 foreach ($result as $row) {
       
   ?> 
@@ -67,6 +60,16 @@ foreach ($result as $row) {
                   <td><?php echo  $row["nome"];?></td> 
                   <td><?php echo  $row["cognome"];?></td> 
                   <td><?php echo $row["email"];?></td> 
+                  <td>
+      
+      <form action="delete.php" method="POST">;
+<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+<input type="hidden" name="elimina" value="true">
+<button type="submit" class='btn btn-danger' name='elimina'>Elimina</button>
+
+</form>
+    </td> 
+   
                   </tr> 
                 <?php 
                              } 
