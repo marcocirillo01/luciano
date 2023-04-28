@@ -9,7 +9,7 @@ include "connessione.php";
          {  
               if(empty($_POST["nome"]) || empty($_POST["password"]))  
               {  
-                   $message = '<label>All fields are required</label>';  
+                  echo 'spazio vuoto';  
               }  
               else  
               {  
