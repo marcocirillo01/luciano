@@ -4,7 +4,7 @@ $data =new PDO(
   "mysql:host=$servername;dbname=$databasename", 
   $username, $password);
 $stmt = $data->prepare($query);
-$query = "SELECT id, codice_fiscale, nome, cognome, email FROM utenti";
+$query = "SELECT password , id, codice_fiscale, nome, cognome, email  FROM utenti";
 $id =['id'];
 $stmt = $data->prepare($query);
 $stmt->execute();
@@ -48,9 +48,14 @@ foreach ($result as $row)
             
             <label for="email">email</label> 
               <input type="text" name='email'id ='email'>
+          
+              <label for="password">password</label> 
+              <input type="text" name='password'id ='password'>
           </p>
           <input type="submit" value="invia">
         </form>
+        <tr> 
+
 <?php
 
 foreach ($result as $row) {
@@ -66,15 +71,28 @@ foreach ($result as $row) {
 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 <input type="hidden" name="elimina" value="true">
 <button type="submit" class='btn btn-danger' name='elimina'>Elimina</button>
-
-</form>
-    </td> 
-   
-                  </tr> 
-                <?php 
+</form>  
+        
+<?php 
                              } 
                         ?> 
               
                 </table> 
                 </body> 
                 </html>
+                <!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/stilelogin.css">
+    </head>
+    <body>
+        <form method="post" action="login.php">
+            <h1>Login</h1>
+            <input type="text" id="nome" placeholder="nome" name="nome">
+            <input type="password" id="password" placeholder="password" name="password">
+            <button type="submit" name="login">Accedi</button>
+        </form>
+    </body>
+</html>
+<?php
