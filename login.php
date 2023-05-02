@@ -3,8 +3,8 @@ session_start();
 include "connessione.php";
     try  
     {  
-         $connect = new PDO("mysql:host=$servername; dbname=$databasename", $username,);  
-         $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+         $data = new PDO("mysql:host=$servername; dbname=$databasename", $username,);  
+         $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
          if(isset($_POST["login"]))  
          {  
               if(empty($_POST["nome"]) || empty($_POST["password"]))  
@@ -13,18 +13,23 @@ include "connessione.php";
               }  
               else  
               {  
-                   $query = "SELECT * FROM utenti WHERE nome = :nome AND password = :password";  
-                   $statement = $connect->prepare($query);  
+               $statement = $data->prepare($query);
+                   $query = "SELECT id, nome , password FROM utenti WHERE nome = :nome AND password = :password";
+                   $statement = $data->prepare($query);  
                    $statement->execute(  
                         array(  
                              'nome'     =>     $_POST["nome"],  
-                             'password'     =>     $_POST["password"]  
+                             'password'     =>     $_POST["password"] ,
+                             
                         )  
                    );  
-                   $count = $statement->rowCount();  
-                   if($count > 0)  
+                   
+                   foreach ($statement as $chiave) 
+                   if($chiave> 0)  
+                  
                    {  
-                        $_SESSION["nome"] = $_POST["username"];  
+                        $_SESSION["marco"] = $chiave['id'];  
+                        //echo $_SESSION["marco"] ;
                         header("location:tabella.php");  
                    }  
                    else  
@@ -38,5 +43,7 @@ include "connessione.php";
     {  
          $message = $error->getMessage();  
     }  
+
+    //risolvere else , 
     ?>  
    

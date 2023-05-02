@@ -12,6 +12,7 @@ $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 $result = $stmt->fetchAll();
 
+
 foreach ($result as $row) 
   ?>
   <!DOCTYPE html>

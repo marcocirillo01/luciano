@@ -1,17 +1,19 @@
 <?php
+session_start();
 include "connessione.php";
 $data =new pdo(
     "mysql:host=$servername;dbname=$databasename", 
     $username, $password);
-$stmt = $data->prepare($query);
-$query = "SELECT id, nome, isbn, id_utente  FROM libri";
+$query = "SELECT id, nome, isbn, id_utente  FROM libri WHERE id_utente=". $_SESSION['marco'];
 $stmt = $data->prepare($query);
 $stmt->execute();
 $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 $result = $stmt->fetchAll();
 
-foreach ($result as $row) 
+//echo $_SESSION["marco"]
+
+//foreach ($result as $row) 
 ?>
               <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +34,19 @@ foreach ($result as $row)
 			  <th> NOME </th> 
 			  <th> ISBN </th> 
 			  <th> ID UTENTE </th>
-              <tr> <td><?php echo $row["id"];?></td> 
+                  <?php
+
+foreach ($result as $row) {
+      
+  ?> 
+                  <tr> <td><?php echo $row["id"];?></td> 
                   <td><?php echo  $row["nome"];?></td> 
                   <td><?php echo  $row["isbn"];?></td> 
                   <td><?php echo $row["id_utente"];?></td> 
                   <td>
+<?php 
+                             } 
+?> 
+</table>                 
 </body> 
-                </html>
+</html>

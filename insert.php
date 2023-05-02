@@ -15,4 +15,5 @@ $query="INSERT INTO utenti ( codice_fiscale, nome, cognome, email, password ) VA
 echo $query;
  $stmt = $data->prepare($query);
  $stmt->execute();
+ if 
 ?>
