@@ -73,6 +73,12 @@ foreach ($result as $row) {
 <input type="hidden" name="elimina" value="true">
 <button type="submit" class='btn btn-danger' name='elimina'>Elimina</button>
 </form>  
+<form action="update.php" method="POST">;
+<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+<input type="hidden" name="update" value="true">
+<button type="submit" class='btn btn-danger' name='aggiorna'>Aggiorna</button>
+</form>  
+        
         
 <?php 
                              } 
