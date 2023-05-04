@@ -1,17 +1,43 @@
-
 <?php 
+session_start();
 include "connessione.php";
-    $nuovo_nome=$_POST['nuovo_nome'];
-    $nuovo_cognome=$_POST['nuovo_cognome'];
-    $id = $_POST['id'];
 $data =new PDO(
-    "mysql:host=$servername;dbname=$databasename", 
+"mysql:host=$servername;dbname=$databasename", 
 $username, $password);
-$stmt = $data->prepare($query);
-$query = "UPDATE utenti SET nome = :nuovo_nome, cognome = :nuovo_cognome WHERE `utenti`. id = :id";
-$stmt = $data->prepare($query);
-$stmt->execute();
+$nome = '';
+//primo if quando premo aggiorna 
+if(isset($_POST["id"]) && isset($_POST["aggiorna"])){
+  $id_libro = $_POST["id"];
+  
+  $query = "SELECT nome FROM libri WHERE id = :id_libro LIMIT 1";
+  $statement = $data->prepare($query);  
+  $statement->execute(  
+       array(  
+            'id_libro'     =>     $id_libro,  
+            
+       )  
+  );  
 
+  $result = $statement->fetch(PDO::FETCH_ASSOC);
+  $nome = $result["nome"];
+
+}
+//secondo iff quando faccio invia
+if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_nome"]) ){
+  //querry per fare update
+  $query = "UPDATE libri SET nome = :nuovo_nome WHERE id = :id_libro AND id_utente=". $_SESSION['marco'];
+  $stmt = $data->prepare($query);
+  $stmt->execute(  
+    array(  
+        'nuovo_nome' => $_POST["nuovo_nome"],
+         'id_libro'     =>     $_POST["id"],  
+         
+    )  
+  ); 
+
+  $nome = $_POST["nuovo_nome"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +49,11 @@ $stmt->execute();
     <title>aggiorna</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="">
       <label for="nuovo_nome">nome</label> 
-        <input type="text" name='nuovo_nome'id ='nuovo_nome'>
-     
-      <label for="nuovo_cognome">cognome</label> 
-        <input type="text" name='nuovo_cognome'id ='nuovo_cognome'>
-        <input type="submit" value="Aggiorna">
-</form>
+      <input type="hidden" name="id" value="<?= $id_libro ?>">
+        <input type="text" name='nuovo_nome' id ='nuovo_nome' value="<?= $nome ?>">
+        <input type="submit" name="aggiornalibro">
+      </form>
         </body>
         </html>

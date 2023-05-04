@@ -4,16 +4,21 @@ include "connessione.php";
 $data =new pdo(
     "mysql:host=$servername;dbname=$databasename", 
     $username, $password);
+    //prova per evitare che uno possa accedere a tabbella cambiando url , devo trovare una soluzione
+    /*if(isset($_SESSION["marco"]) )
+    {
+
+    }
+    else
+    {
+      header("index.php");
+    }*/
 $query = "SELECT id, nome, isbn, id_utente  FROM libri WHERE id_utente=". $_SESSION['marco'];
 $stmt = $data->prepare($query);
 $stmt->execute();
 $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 $result = $stmt->fetchAll();
-
-//echo $_SESSION["marco"]
-
-//foreach ($result as $row) 
 ?>
               <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +49,11 @@ foreach ($result as $row) {
                   <td><?php echo  $row["isbn"];?></td> 
                   <td><?php echo $row["id_utente"];?></td> 
                   <td>
+                  <form action="update.php" method="POST">;
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ; ?>">
+                    <input type="hidden" name="update" value="true">
+                    <button type="submit" class='btn btn-danger' name='aggiorna'>Aggiorna</button>
+                  </form>  
 <?php 
                              } 
 ?> 

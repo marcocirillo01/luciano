@@ -15,10 +15,6 @@ if (strpos($email,'@')==false)
 {
     trigger_error("non cé la @", E_USER_ERROR);
 }
-else
-{
-   
-}
 $query="INSERT INTO utenti ( codice_fiscale, nome, cognome, email, password ) VALUES
 ('$codice_fiscale','$nome','$cognome','$email','$password1')";
 echo $query;
