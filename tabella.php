@@ -4,15 +4,6 @@ include "connessione.php";
 $data =new pdo(
     "mysql:host=$servername;dbname=$databasename", 
     $username, $password);
-    //prova per evitare che uno possa accedere a tabbella cambiando url , devo trovare una soluzione
-    /*if(isset($_SESSION["marco"]) )
-    {
-
-    }
-    else
-    {
-      header("index.php");
-    }*/
 $query = "SELECT id, nome, isbn, id_utente  FROM libri WHERE id_utente=". $_SESSION['marco'];
 $stmt = $data->prepare($query);
 $stmt->execute();
