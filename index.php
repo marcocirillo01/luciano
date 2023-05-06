@@ -26,9 +26,8 @@ foreach ($result as $row)
 </head>
 <body>
   <header>
-    <img src="desktop/libri.jpg" alt="logo" width="180" class="logo">
-    <h1>
-      LIBRERIA
+  <img src="https://media.istockphoto.com/id/537387514/it/vettoriale/libreria-logo-illustrazione-vettoriale-solo-su-bianco-libro-aperto-logotype.jpg?s=612x612&w=0&k=20&c=DvAd20L6FzvkvCi6x0o3NC5OnGixht2vPNBGXA3rGsE=" alt="logo" width="100" class="logo">
+  <h1>WEB BOOKSHELF
     </h1>
     <nav>
       <ul class="menu">

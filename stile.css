@@ -1,4 +1,8 @@
 
+body{
+    background-image:url(https://a-static.besthdwallpaper.com/mountain-landscape-sunrise-wallpaper-3554x1999-81334_53.jpg);
+    background-size: cover;
+}
 p{
     font:bolder italic 1px ;
 }
