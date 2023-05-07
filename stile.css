@@ -1,21 +1,13 @@
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  
-}
 body{
     background-image:url(https://a-static.besthdwallpaper.com/mountain-landscape-sunrise-wallpaper-3554x1999-81334_53.jpg);
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
 }
 
 
 table{
-    border: 2px solid rgb(0, 0, 0);
+    border: 100px solid rgb(0, 0, 0);
+
 }
 
 tr{

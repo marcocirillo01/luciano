@@ -27,7 +27,7 @@ foreach ($result as $row)
 <body>
 <table align="center" border="1px" style="width:600px; line-height:40px;"> 
 	<tr> 
-		<th colspan="4"><h2>DATI UTENTI</h2></th> 
+		<th colspan="5"><h2>DATI UTENTI</h2></th> 
    
   </tr> 
 			  <th> CODICE FISCALE </th> 

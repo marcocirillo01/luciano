@@ -23,13 +23,14 @@ $result = $stmt->fetchAll();
 <body>
 <tr> 
 <table align="center" border="1px" style="width:600px; line-height:40px;"> 
-		<th colspan="4"><h2>LIBRI</h2></th> 
+		<th colspan="5"><h2>LIBRI</h2></th> 
    
   </tr> 
 			  <th> ID </th> 
 			  <th> NOME </th> 
 			  <th> ISBN </th> 
 			  <th> ID UTENTE </th>
+        <th> OPERAZIONI </th>
                   <?php
 
 foreach ($result as $row) {
