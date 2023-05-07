@@ -1,4 +1,6 @@
-html,body {
+body {
+    background-image:url(https://a-static.besthdwallpaper.com/mountain-landscape-sunrise-wallpaper-3554x1999-81334_53.jpg);
+    background-size: cover;
     padding: 0;
     margin: 0;
     font: 14px 'Open sans', sans-serif;

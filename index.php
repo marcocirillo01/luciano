@@ -37,6 +37,7 @@ foreach ($result as $row)
       </ul>
     </nav>
   </header>
+  </main>
                 </body> 
                 </html>
 
