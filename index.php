@@ -19,9 +19,7 @@ foreach ($result as $row)
 <html lang="en">
 <head>
   <link rel="stylesheet" href="stilenav.css"/>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e28537ee0a.js" crossorigin="anonymous"></script>
     <title>LIBERIA</title>
 </head>
 <body>
@@ -37,7 +35,10 @@ foreach ($result as $row)
       </ul>
     </nav>
   </header>
-  </main>
+  <div class="search-box">
+    <input type="text" class="search" placeholder="Cerca...">
+    <button type="button" class="button"><i class="fa-duotone fa-magnifying-glass"></i></button>
+  </div>
                 </body> 
                 </html>
 
