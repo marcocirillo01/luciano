@@ -35,10 +35,7 @@ foreach ($result as $row)
       </ul>
     </nav>
   </header>
-  <div class="search-box">
-    <input type="text" class="search" placeholder="Cerca...">
-    <button type="button" class="button"><i class="fa-duotone fa-magnifying-glass"></i></button>
-  </div>
+  
                 </body> 
                 </html>
 

@@ -4,14 +4,13 @@ body{
   
 }
 
-
 table{
-    border: 100px solid rgb(0, 0, 0);
+    border: 100px #fff;
 
 }
 
 tr{
-    background-color:rgb(0, 0, 0);
+    background-color:#fff;
     width: 100px;
 }
 
