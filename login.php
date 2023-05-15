@@ -1,30 +1,33 @@
 <?php
 session_start();
 include "connessione.php";
-    try  
-    {  
          $data = new PDO("mysql:host=$servername; dbname=$databasename", $username,);  
          $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
          if(isset($_POST["login"]))  
          {  
-              if(empty($_POST["nome"]) || empty($_POST["password"]))  
+              if(empty($_POST["email"]) || empty($_POST["password"]))  
               {  
                   echo 'spazio vuoto';  
               }  
               else  
               {  
                $statement = $data->prepare($query);
-                   $query = "SELECT id, nome , password FROM utenti WHERE nome = :nome AND password = :password";
+                   $query = "SELECT id, email , password FROM utenti WHERE email = :email AND password = :password";
                    $statement = $data->prepare($query);  
                    $statement->execute(  
                         array(  
-                             'nome'     =>     $_POST["nome"],  
+                             'email'     =>     $_POST["email"],  
                              'password'     =>     $_POST["password"] ,
                              
                         )  
                    );  
+              }  
+          
+
+
                    
-                   foreach ($statement as $chiave) 
+                   foreach ($statement as $chiave)
+                   
                    if($chiave> 0)  
                   
                    {  
@@ -34,16 +37,14 @@ include "connessione.php";
                    }  
                    else  
                    {  
-                        echo 'DATI SBAGLIATI';  
-                   }  
-              }  
+               
+                        header('login.html');  
+                   }
+               
          }  
-    }  
-    catch(PDOException $error)  
-    {  
-         $message = $error->getMessage();  
-    }  
+           
+  
 
-    //risolvere else , 
+     
     ?>  
    

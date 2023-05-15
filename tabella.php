@@ -21,7 +21,8 @@ $result = $stmt->fetchAll();
     <title>TEST</title>
 </head>
 <body>
-<tr> 
+<?php require('particels/navbar.php')?>
+<div class="corpo"><tr> 
 <table align="center" border="1px" style="width:600px; line-height:40px;"> 
 		<th colspan="5"><h2>LIBRI</h2></th> 
    
@@ -41,7 +42,7 @@ foreach ($result as $row) {
                   <td><?php echo  $row["isbn"];?></td> 
                   <td><?php echo $row["id_utente"];?></td> 
                   <td>
-                  <form action="update.php" method="POST">;
+                  <form action="update.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $row['id'] ; ?>">
                     <input type="hidden" name="update" value="true">
                     <button type="submit" class='btn btn-danger' name='aggiorna'>Aggiorna</button>
@@ -49,6 +50,8 @@ foreach ($result as $row) {
 <?php 
                              } 
 ?> 
-</table>                 
+</table>                
+ </div>
+
 </body> 
 </html>

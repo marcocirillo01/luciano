@@ -25,7 +25,9 @@ foreach ($result as $row)
     <title>UTENTI</title>
 </head>
 <body>
-<table align="center" border="1px" style="width:600px; line-height:40px;"> 
+<?php require('particels/navbar.php')?>
+<div class="corpo">
+  <table align="center" border="1px" style="width:600px; line-height:40px;"> 
 	<tr> 
 		<th colspan="5"><h2>DATI UTENTI</h2></th> 
    
@@ -47,7 +49,7 @@ foreach ($result as $row) {
                   <td><?php echo  $row["cognome"];?></td> 
                   <td><?php echo $row["email"];?></td> 
                   <td>
-                  <form action="delete.php" method="POST">;
+                  <form action="delete.php" method="POST">
 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 <input type="hidden" name="elimina" value="true">
 <button type="submit" class='btn btn-danger' name='elimina'>Elimina</button>
@@ -57,6 +59,8 @@ foreach ($result as $row) {
 <?php 
                              } 
                         ?> 
-                  </table> 
+                  </table>
+                 </div>
+
                 </body> 
                 </html>
