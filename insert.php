@@ -14,11 +14,12 @@ $password1=$_POST['password'];
 if (strpos($email,'@')==false)
 {
     trigger_error("non cé la @", E_USER_ERROR);
+    header("location: inseriscidati.html");
 }
 $query="INSERT INTO utenti ( codice_fiscale, nome, cognome, email, password ) VALUES
 ('$codice_fiscale','$nome','$cognome','$email','$password1')";
 echo $query;
  $stmt = $data->prepare($query);
  $stmt->execute();
-
+ header("location: Utenti.php");
 ?>

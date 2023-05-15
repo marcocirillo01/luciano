@@ -28,17 +28,16 @@ include "connessione.php";
                    
                    foreach ($statement as $chiave)
                    
-                   if($chiave> 0)  
+                   if($chiave>0)  
                   
                    {  
                         $_SESSION["marco"] = $chiave['id'];  
-                        //echo $_SESSION["marco"] ;
+
                         header("location:tabella.php");  
                    }  
                    else  
                    {  
-               
-                        header('login.html');  
+                    header("location:login.html"); 
                    }
                
          }  

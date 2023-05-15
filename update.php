@@ -36,8 +36,10 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
   ); 
 
   $nome = $_POST["nuovo_nome"];
-
+  header("location:tabella.php");
+   
 }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">

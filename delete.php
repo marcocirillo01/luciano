@@ -5,7 +5,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $passw
  $id = $_POST['id'];
  $sql = "DELETE FROM utenti WHERE id={$id}";
  $conn->exec($sql);
- echo "UTENTE ELIMINATO";
+ header("location:Utenti.php");
 
  
 ?>
