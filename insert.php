@@ -11,7 +11,7 @@ $cognome=$_POST['cognome'];
 $codice_fiscale=$_POST['codice_fiscale'];
 $email=$_POST['email'];
 $password2=$_POST['password'];
-$password1=password_hash($password2, PASSWORD_DEFAULT);
+$password1=md5($password2);
 if (strpos($email,'@')==false)
 {
     trigger_error("non cé la @", E_USER_ERROR);
