@@ -8,7 +8,10 @@
 </head>
 <body>
 <?php require('particels/navbar.php')?>
-  
+<?php
+$input="ciao";
+$ciao= password_hash("c", PASSWORD_DEFAULT);
+?>
                 </body> 
                 </html>
 
