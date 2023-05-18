@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "connessione.php";
+include "services/connessione.php";
 $data = new PDO("mysql:host=$servername; dbname=$databasename", $username,);
 $data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -27,7 +27,7 @@ if (isset($_POST["login"])) {
 
           if (count($result) > 0) {
                $_SESSION["marco"] = $result[0]['id'];
-               header("location:tabella.php");
+               header("location:libri/tabella.php");
           } else {
                echo "errore count";
                exit();

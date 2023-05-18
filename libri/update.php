@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "connessione.php";
+include "../services/connessione.php";
 $data =new PDO(
 "mysql:host=$servername;dbname=$databasename", 
 $username, $password);
@@ -36,7 +36,7 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
   ); 
 
   $nome = $_POST["nuovo_nome"];
-  header("location:tabella.php");
+  header("location:libri/tabella.php");
    
 }
   
@@ -44,7 +44,7 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="stile.css"/>
+  <link rel="stylesheet" href="assets/css/stile.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

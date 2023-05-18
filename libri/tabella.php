@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "connessione.php";
+include "../services/connessione.php";
 $data =new pdo(
     "mysql:host=$servername;dbname=$databasename", 
     $username, $password);
@@ -14,14 +14,14 @@ $result = $stmt->fetchAll();
               <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="stile.css"/>
+  <link rel="stylesheet" href="../assets/css/stile.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEST</title>
 </head>
 <body>
-<?php require('particels/navbar.php')?>
+<?php require('../partials/navbar.php')?>
 <div class="corpo"><tr> 
 <table align="center" border="1px" style="width:600px; line-height:40px;"> 
 		<th colspan="5"><h2>LIBRI</h2></th> 
@@ -47,11 +47,26 @@ foreach ($result as $row) {
                     <input type="hidden" name="update" value="true">
                     <button type="submit" class='btn btn-danger' name='aggiorna'>Aggiorna</button>
                   </form>  
+                  <form action="delete_libri.php" method="POST">
+<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+<input type="hidden" name="elimina" value="true">
+<button type="submit" class='btn btn-danger' name='elimina'>Elimina</button>
+</form>  
 <?php 
                              } 
 ?> 
 </table>                
  </div>
-
+ <form action="inserisci_libri.php" method="POST">
+          <p>
+            <label for="nome">Nome</label> 
+              <input type="text" name='nome'id ='nome'>
+           
+            <label for="isbn">Isbn</label> 
+              <input type="text" name='isbn'id ='isbn'>
+       
+          </p>
+          <input type="submit" value="invia">
+        </form>
 </body> 
 </html>
