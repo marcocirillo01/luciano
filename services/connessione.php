@@ -3,8 +3,6 @@
    $username = "root";
    $password = "";
    $databasename = "big";
-// marco//
-
 
 $data = mysqli_connect($servername, 
     $username, $password, $databasename);

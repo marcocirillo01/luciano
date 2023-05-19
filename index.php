@@ -1,17 +1,15 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="assets/css/stilenav.css"/>
-    <script src="https://kit.fontawesome.com/e28537ee0a.js" crossorigin="anonymous"></script>
-    <title>LIBERIA</title>
-</head>
-<body>
-<?php require('partials/navbar.php')?>
-<?php
-$input="ciao";
-$ciao= password_hash("c", PASSWORD_DEFAULT);
-?>
-                </body> 
-                </html>
 
+<head>
+  <link rel="stylesheet" href="assets/css/stilenav.css" />
+  <script src="https://kit.fontawesome.com/e28537ee0a.js" crossorigin="anonymous"></script>
+  <title>LIBERIA</title>
+</head>
+
+<body>
+  <?php require('partials/navbar.php') ?>
+
+</body>
+
+</html>

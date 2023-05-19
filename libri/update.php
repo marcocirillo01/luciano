@@ -36,7 +36,7 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
   ); 
 
   $nome = $_POST["nuovo_nome"];
-  header("location:libri/tabella.php");
+  header("location:tabella.php");
    
 }
   
@@ -44,7 +44,7 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="assets/css/stile.css"/>
+  <link rel="stylesheet" href="../assets/css/stile3.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@ if(isset($_POST["id"]) && isset($_POST["aggiornalibro"]) && isset($_POST["nuovo_
 </head>
 <body>
     <form method="post" action="">
-      <label for="nuovo_nome">nome</label> 
+      <label for="nuovo_nome"> NOME</label> 
       <input type="hidden" name="id" value="<?= $id_libro ?>">
         <input type="text" name='nuovo_nome' id ='nuovo_nome' value="<?= $nome ?>">
         <input type="submit" name="aggiornalibro">

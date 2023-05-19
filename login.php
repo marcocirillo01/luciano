@@ -30,6 +30,7 @@ if (isset($_POST["login"])) {
                header("location:libri/tabella.php");
           } else {
                echo "errore count";
+               header("location:login.html");
                exit();
           }
      }
