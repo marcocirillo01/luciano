@@ -10,8 +10,8 @@ $id_u = $_SESSION["marco"];
 $nome = $_POST['nome'];
 $isbn = $_POST['isbn'];
 
-$query = "INSERT INTO libri ( id_utente, nome, isbn ) VALUES ('$id_u''$nome','$isbn',)";
-echo $query;
+$query = "INSERT INTO libri ( id, isbn, nome, id_utente ) VALUES ('null','$isbn','$nome','$id_u')" ;
 $stmt = $data->prepare($query);
 $stmt->execute();
-header("location:libri/tabella.php");
+
+header("location:tabella.php");
